@@ -1,7 +1,7 @@
 package com.example.movie_app.Service.Hilt
 
 
-import com.example.movie_app.Service.Retrofit.Constants
+import com.example.movie_app.Service.Utils.Constants
 import com.example.movie_app.Service.Retrofit.MovieInterface
 import dagger.Module
 import dagger.Provides
