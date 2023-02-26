@@ -11,6 +11,10 @@ import com.example.movie_app.domain.Movie
 
 class MoviePagingAdapter : PagingDataAdapter<Movie, MoviePagingAdapter.MyViewHolder>(DIFF_UTIL) {
 
+
+
+    var onClick : ((String)->Unit)?= null
+
     inner class MyViewHolder(val viewDataBinding: ViewHolderMovieBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root)
 
@@ -26,8 +30,19 @@ class MoviePagingAdapter : PagingDataAdapter<Movie, MoviePagingAdapter.MyViewHol
         }
     }
 
+    fun onMovieClick(listener: (String)->Unit) {
+        onClick = listener
+    }
+
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.viewDataBinding.setVariable(BR.movie, getItem(position))
+        val data = getItem(position)
+        holder.viewDataBinding.setVariable(BR.movie, data)
+
+        holder.viewDataBinding.root.setOnClickListener {
+            onClick?.let {
+                it(data?.imdbID!!)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
