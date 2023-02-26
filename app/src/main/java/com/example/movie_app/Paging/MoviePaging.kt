@@ -1,11 +1,11 @@
-package com.example.movie_app.Service.Paging
+package com.example.movie_app.Paging
 
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.movie_app.Service.Domain.Movie
-import com.example.movie_app.Service.Utils.Constants
-import com.example.movie_app.Service.Retrofit.MovieInterface
+import com.example.movie_app.domain.Movie
+import com.example.movie_app.Utils.Constants
+import com.example.movie_app.Retrofit.MovieInterface
 
 class MoviePaging(val s: String, val movieInterface: MovieInterface) : PagingSource<Int, Movie>() {
 

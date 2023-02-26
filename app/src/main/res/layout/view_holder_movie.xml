@@ -6,11 +6,9 @@
 
     <data>
 
-        <import type="com.example.movie_app.Service.Domain.Movie" />
-
         <variable
             name="movie"
-            type="Movie" />
+            type="com.example.movie_app.domain.Movie" />
 
     </data>
 
@@ -23,7 +21,6 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content">
 
 

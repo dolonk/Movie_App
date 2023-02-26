@@ -1,4 +1,4 @@
-package com.example.movie_app.Service.Domain
+package com.example.movie_app.domain
 
 data class MovieResponse(
     val Response: String,

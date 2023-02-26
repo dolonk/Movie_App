@@ -1,8 +1,8 @@
-package com.example.movie_app.Service.Hilt
+package com.example.movie_app.Hilt
 
 
-import com.example.movie_app.Service.Utils.Constants
-import com.example.movie_app.Service.Retrofit.MovieInterface
+import com.example.movie_app.Utils.Constants
+import com.example.movie_app.Retrofit.MovieInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
