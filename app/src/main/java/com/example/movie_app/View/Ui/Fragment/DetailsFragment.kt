@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.movie_app.R
-import com.example.movie_app.Utils.Status
 import com.example.movie_app.Utils.Status.*
 import com.example.movie_app.databinding.FragmentDetailsBinding
 import com.example.movie_app.viewModel.MovieViewModel
@@ -17,7 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DetailsFragment : Fragment() {
-
 
     lateinit var binding: FragmentDetailsBinding
 
@@ -45,31 +42,30 @@ class DetailsFragment : Fragment() {
 
         binding.backPress.setOnClickListener {
             findNavController().popBackStack()
+        }
 
 
-            viewModel.getMovieDetails(args.imdbId!!)
+        viewModel.getMovieDetails(args.imdbId!!)
 
-            viewModel.movieDetails.observe(viewLifecycleOwner) {
-                when (it.getContentIfNotHandled()?.status) {
+        viewModel.movieDetails.observe(viewLifecycleOwner) {
+            when (it.getContentIfNotHandled()?.status) {
 
-                    LOADING -> {
+                LOADING -> {
 
-                        binding.detailsProgress.visibility = View.VISIBLE
+                    binding.detailsProgress.visibility = View.VISIBLE
 
-                    }
-                    ERROR -> {
-                        binding.detailsProgress.visibility = View.GONE
-                    }
-                    SUCCESS -> {
-                        binding.detailsProgress.visibility = View.GONE
-
-                        binding.movieDetails = it.peekContent().data
-
-                    }
-                    null -> TODO()
                 }
+                ERROR -> {
+                    binding.detailsProgress.visibility = View.GONE
+                }
+                SUCCESS -> {
+                    binding.detailsProgress.visibility = View.GONE
+
+                    binding.movieDetails = it.peekContent().data
+
+                }
+                else -> {}
             }
         }
     }
-
 }

@@ -19,8 +19,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class MovieFragment : Fragment() {
 
     lateinit var binding: FragmentMovieBinding
+
     val viewModel: MovieViewModel by viewModels()
-    val movieAdapter = MoviePagingAdapter()
+    private val movieAdapter = MoviePagingAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
